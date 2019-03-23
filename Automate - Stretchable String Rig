@@ -5,7 +5,7 @@
 
 import maya.cmds as mc
 
-
+sss###
 sel = mc.ls( sl=1 )
 
 curveInfoA = mc.shadingNode( 'curveInfo', au=1)
