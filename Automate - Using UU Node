@@ -1,0 +1,31 @@
+
+# 피해자 마다 셋드리븐노드 하나 생성하고, 여러값 삽입
+
+import maya.cmds as mc
+
+global sel
+sel = mc.ls( sl=1 )
+
+global driverAttr
+driverAttr = 'character_Switch'
+
+global drivenAttr
+drivenAttr = 'visibility'
+
+#print sel[1:]
+
+
+
+for s in sel[1:]:
+    mc.setDrivenKeyframe( s+'.'+drivenAttr, v=0, dv=0, cd=sel[0]+'.'+driverAttr )
+    mc.setDrivenKeyframe( s+'.'+drivenAttr, v=0, dv=1, cd=sel[0]+'.'+driverAttr )
+    mc.setDrivenKeyframe( s+'.'+drivenAttr, v=0, dv=2, cd=sel[0]+'.'+driverAttr )
+    mc.setDrivenKeyframe( s+'.'+drivenAttr, v=0, dv=3, cd=sel[0]+'.'+driverAttr )
+    mc.setDrivenKeyframe( s+'.'+drivenAttr, v=0, dv=4, cd=sel[0]+'.'+driverAttr )
+
+
+    mc.setDrivenKeyframe( s+'.'+drivenAttr, v=0, dv=5, cd=sel[0]+'.'+driverAttr )
+    mc.setDrivenKeyframe( s+'.'+drivenAttr, v=0, dv=6, cd=sel[0]+'.'+driverAttr )
+    mc.setDrivenKeyframe( s+'.'+drivenAttr, v=0, dv=7, cd=sel[0]+'.'+driverAttr )
+    mc.setDrivenKeyframe( s+'.'+drivenAttr, v=0, dv=8, cd=sel[0]+'.'+driverAttr )
+    mc.setDrivenKeyframe( s+'.'+drivenAttr, v=0, dv=9, cd=sel[0]+'.'+driverAttr )
