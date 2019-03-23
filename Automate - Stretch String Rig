@@ -1,0 +1,30 @@
+
+#1.커브 선택
+#2.spline IK 조인트들 전부 선택
+
+
+import maya.cmds as mc
+
+
+sel = mc.ls( sl=1 )
+
+curveInfoA = mc.shadingNode( 'curveInfo', au=1)
+multiDivideA = mc.shadingNode( 'multiplyDivide', au=1)
+multiDivideB = mc.shadingNode( 'multiplyDivide', au=1)
+mc.setAttr( multiDivideA+'.operation', 2)
+mc.setAttr( multiDivideB+'.operation', 2)
+
+
+
+mc.connectAttr( sel[0]+'.worldSpace[0]', curveInfoA+'.inputCurve' )
+mc.connectAttr( curveInfoA+'.arcLength', multiDivideA+'.input1.input1X' )
+mc.connectAttr( multiDivideA+'.output.outputX', multiDivideB+'.input1.input1X' )
+a = mc.getAttr(curveInfoA+'.arcLength')
+mc.setAttr( multiDivideA+'.input2.input2X', a )
+
+#curveInfo1.arcLength from multiplyDivide2.input1.input1X. //
+#multiplyDivide2.output.outputX from multiplyDivide1.input1.input1X.
+
+
+for s in sel[1:]:
+    mc.connectAttr( multiDivideB+'.output.outputX', s+'.scaleX' )
