@@ -1,4 +1,4 @@
-
+#TEST Change
 # 피해자 마다 셋드리븐노드 하나 생성하고, 여러값 삽입
 
 import maya.cmds as mc
